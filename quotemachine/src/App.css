@@ -1,0 +1,12 @@
+quoteDisplay {
+  display: flex;
+}
+
+textQuoteDisplay {
+  color: red;
+}
+
+.langButton {
+  color: white;
+  padding: 2px;
+}
