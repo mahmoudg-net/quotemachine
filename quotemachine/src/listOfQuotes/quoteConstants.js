@@ -166,4 +166,6 @@ const quotes = {
   ]
 };
 
-export { languages, quotes };
+const getNewQuote = lang => Math.floor(Math.random() * quotes[lang].length);
+
+export { languages, getNewQuote };
