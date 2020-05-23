@@ -4,12 +4,19 @@ import "../App.css";
 import { newQuoteAction } from "../redux/actions";
 
 function Presentation(props) {
-  const { newQuoteText, textColor, displayNewQuote } = props;
+  const {
+    newQuoteText,
+    colors: { textColor, backgroundColor },
+    displayNewQuote,
+  } = props;
   return (
     <button
       className="newQuoteButton"
       onClick={displayNewQuote}
-      style={{ backgroundColor: textColor }}
+      style={{
+        backgroundColor: textColor,
+        color: backgroundColor,
+      }}
     >
       {newQuoteText}
     </button>
@@ -17,7 +24,7 @@ function Presentation(props) {
 }
 
 const mapStateToProps = (state) => {
-  return { newQuoteText: state.newQuoteText };
+  return { newQuoteText: state.newQuoteText, colors: state.colors };
 };
 
 const mapDispatchToProps = (dispatch) => {

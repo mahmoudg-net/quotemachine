@@ -13,22 +13,12 @@ class Presentation extends React.Component {
   }
 
   render() {
-    const {
-      quote,
-      currentLang,
-      textColor,
-      fontFamily,
-      newQuoteText,
-      setLanguage,
-      displayNewQuote,
-    } = { ...this.props };
+    const { quote, fontFamily } = {
+      ...this.props,
+    };
     return (
       <div className="App">
-        <QuoteDisplay
-          quote={quote}
-          textColor={textColor}
-          textFontFamily={fontFamily}
-        />
+        <QuoteDisplay quote={quote} textFontFamily={fontFamily} />
         <div id="langRow">
           {Object.keys(languages).map((lang) => {
             return (
@@ -36,17 +26,11 @@ class Presentation extends React.Component {
                 key={lang}
                 text={languages[lang].text}
                 langValue={lang}
-                textColor={textColor}
-                isClicked={lang.value === currentLang}
               />
             );
           })}
         </div>
-        <NewQuoteButton
-          text={newQuoteText}
-          textColor={textColor}
-          displayNewQuote={displayNewQuote}
-        />
+        <NewQuoteButton />
       </div>
     );
   }

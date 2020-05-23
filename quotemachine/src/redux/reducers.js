@@ -1,10 +1,15 @@
 import { SET_LANGUAGE, NEW_QUOTE } from "./actions";
-import { languages, getNewQuote } from "../listOfQuotes/quoteConstants";
+import {
+  languages,
+  getNewQuote,
+  getRandomColor,
+} from "../listOfQuotes/quoteConstants";
 
 const initialState = {
   language: Object.keys(languages)[0],
   quote: getNewQuote(Object.keys(languages)[0]),
   newQuoteText: languages[Object.keys(languages)[0]].newQuoteText,
+  colors: getRandomColor(),
 };
 
 const dispatcher = (state, action) => {
@@ -17,11 +22,13 @@ const dispatcher = (state, action) => {
             ? state.quote
             : getNewQuote(action.language),
         newQuoteText: languages[action.language].newQuoteText,
+        colors: getRandomColor(),
       };
     case NEW_QUOTE:
       return {
         ...state,
         quote: getNewQuote(state.language),
+        colors: getRandomColor(),
       };
     default:
       return state;

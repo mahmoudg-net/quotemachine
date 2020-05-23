@@ -166,10 +166,18 @@ const quotes = {
   ],
 };
 
-const getNewQuote = (lang) => {
-  console.log("getNewQuote " + lang);
-  console.log(quotes[lang]);
-  return quotes[lang][Math.floor(Math.random() * quotes[lang].length)];
+const getNewQuote = (lang) =>
+  quotes[lang][Math.floor(Math.random() * quotes[lang].length)];
+
+const getRandomColor = () => {
+  const rand = () => Math.floor(128 * Math.random());
+  const r = rand(),
+    g = rand(),
+    b = rand();
+  return {
+    textColor: `rgb(${r},${g},${b})`,
+    backgroundColor: `rgb(${128 + r},${128 + g},${128 + b})`,
+  };
 };
 
-export { languages, getNewQuote };
+export { languages, getNewQuote, getRandomColor };
