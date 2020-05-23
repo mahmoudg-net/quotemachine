@@ -3,19 +3,10 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import { languages, quotes } from "./listOfQuotes/quoteConstants";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App
-      textColor="green"
-      fontFamily="sans-serif"
-      languages={languages}
-      currentLang="AR"
-      setLanguage={() => {}}
-      newQuoteText="مقولة جديدة"
-      displayNewQuote={() => {}}
-    />
+    <App textColor="green" fontFamily="serif" />
   </React.StrictMode>,
   document.getElementById("root")
 );

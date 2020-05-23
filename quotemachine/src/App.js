@@ -1,89 +1,43 @@
 import React from "react";
+import { Provider } from "react-redux";
+import { store } from "./redux/store";
+import QuoteDisplay from "./components/quoteDisplay";
+import LangButton from "./components/langButton";
+import NewQuoteButton from "./components/newQuoteButton";
+import { languages } from "./listOfQuotes/quoteConstants";
 import "./App.css";
 
-function QuoteDisplay(props) {
-  const {
-    quote: { text, author },
-    textColor,
-    textFontFamily
-  } = props;
-  return (
-    <div className="quoteDisplay">
-      <h1
-        className="textQuoteDisplay"
-        style={{ color: textColor, fontFamily: textFontFamily }}
-      >
-        {text}
-      </h1>
-      <br />
-      <span className="authorQuoteDisplay">{author}</span>
-    </div>
-  );
-}
-
-function LangButton(props) {
-  const { text, isClicked, textColor, setLanguage } = { ...props };
-  console.log(props);
-
-  return (
-    <button
-      className="langButton"
-      style={{ backgroundColor: textColor, opacity: isClicked ? 1 : 0.5 }}
-      onClick={setLanguage}
-    >
-      {text}
-    </button>
-  );
-}
-
-function NewQuoteButton(props) {
-  const { text, textColor, displayNewQuote } = props;
-  return (
-    <button
-      className="newQuoteButton"
-      onClick={displayNewQuote}
-      style={{ backgroundColor: textColor }}
-    >
-      {text}
-    </button>
-  );
-}
-
-class App extends React.Component {
+class Presentation extends React.Component {
   constructor(props) {
     super(props);
   }
 
   render() {
     const {
-      textColor,
-      textFontFamily,
-      languages,
+      quote,
       currentLang,
-      setLanguage,
+      textColor,
+      fontFamily,
       newQuoteText,
-      displayNewQuote
+      setLanguage,
+      displayNewQuote,
     } = { ...this.props };
-    const quoteDisplayContent = {
-      text: "Aide toi, DIEU t'aidera",
-      author: "Chai pas"
-    };
     return (
       <div className="App">
         <QuoteDisplay
-          quote={quoteDisplayContent}
+          quote={quote}
           textColor={textColor}
-          textFontFamily={textFontFamily}
+          textFontFamily={fontFamily}
         />
         <div id="langRow">
-          {languages.map(lang => {
+          {Object.keys(languages).map((lang) => {
             return (
               <LangButton
-                text={lang.text}
-                value={lang.value}
+                key={lang}
+                text={languages[lang].text}
+                langValue={lang}
                 textColor={textColor}
                 isClicked={lang.value === currentLang}
-                changeLangAction={setLanguage}
               />
             );
           })}
@@ -94,6 +48,17 @@ class App extends React.Component {
           displayNewQuote={displayNewQuote}
         />
       </div>
+    );
+  }
+}
+
+class App extends React.Component {
+  render() {
+    console.log(this.props);
+    return (
+      <Provider store={store}>
+        <Presentation {...this.props} />
+      </Provider>
     );
   }
 }
