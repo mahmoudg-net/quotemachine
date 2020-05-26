@@ -14,7 +14,7 @@ function Presentation(props) {
 
   return (
     <button
-      className="langButton"
+      className="langButton btn btn-secondary"
       style={{
         backgroundColor: textColor,
         color: backgroundColor,

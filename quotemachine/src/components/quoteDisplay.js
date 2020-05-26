@@ -11,14 +11,14 @@ function Presentation(props) {
   } = props;
   return (
     <div className="quoteDisplay" style={{ backgroundColor: backgroundColor }}>
-      <h1
-        className="textQuoteDisplay"
-        style={{ color: textColor, fontFamily: textFontFamily }}
-      >
+      <h1 style={{ color: textColor, fontFamily: textFontFamily }} id="text">
         {text}
       </h1>
-      <br />
-      <span className="authorQuoteDisplay" style={{ color: textColor }}>
+      <span
+        className="authorQuoteDisplay"
+        style={{ color: textColor }}
+        id="author"
+      >
         {author}
       </span>
     </div>

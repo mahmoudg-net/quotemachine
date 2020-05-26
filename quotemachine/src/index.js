@@ -6,9 +6,9 @@ import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App textColor="green" fontFamily="serif" />
+    <App textColor="green" fontFamily="'Amiri', serif" />
   </React.StrictMode>,
-  document.getElementById("root")
+  document.getElementById("quote-box")
 );
 
 // If you want your app to work offline and load faster, you can change

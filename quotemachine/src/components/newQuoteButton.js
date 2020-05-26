@@ -11,12 +11,13 @@ function Presentation(props) {
   } = props;
   return (
     <button
-      className="newQuoteButton"
+      className="newQuoteButton btn btn-primary"
       onClick={displayNewQuote}
       style={{
         backgroundColor: textColor,
         color: backgroundColor,
       }}
+      id="new-quote"
     >
       {newQuoteText}
     </button>

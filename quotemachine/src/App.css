@@ -1,12 +1,57 @@
-quoteDisplay {
+#main {
+  width: 100vw;
+  height: 100vh;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
 }
 
-textQuoteDisplay {
-  color: red;
+#quote-box {
+  width: 500px;
+}
+
+.App {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 150px;
+  grid-template-rows: 1fr 1fr 35px 35px;
+}
+
+.quoteDisplay {
+  grid-area: 1/1/3/4;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+#text {
+  font-size: 2em;
+}
+
+#author {
+  align-self: flex-end;
+  margin-right: 5px;
+}
+#new-quote {
+  grid-area: 3/3/4/4;
+}
+
+#langRow {
+  grid-area: 4/2/5/4;
+  justify-self: end;
+  margin-top: 5px;
+}
+
+#tweet-quote {
+  grid-area: 4/1/5/2;
+  align-self: end;
 }
 
 .langButton {
-  color: white;
-  padding: 2px;
+  font-size: 0.9em;
+}
+
+.newQuoteButton {
+  font-size: 0.9em;
 }
