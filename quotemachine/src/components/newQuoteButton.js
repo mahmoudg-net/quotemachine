@@ -36,6 +36,9 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-const LangButton = connect(mapStateToProps, mapDispatchToProps)(Presentation);
+const NewQuoteButton = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Presentation);
 
-export default LangButton;
+export default NewQuoteButton;
